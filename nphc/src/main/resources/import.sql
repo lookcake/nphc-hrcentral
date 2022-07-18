@@ -1,0 +1,1 @@
+insert into TB_USER values ('e0001','testlogin','tester',1000.00,'2022-07-17');

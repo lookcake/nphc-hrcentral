@@ -3,6 +3,7 @@ package com.hrcentral.nphc;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
 @SpringBootApplication
 public class NphcApplication {
 
@@ -10,4 +11,5 @@ public class NphcApplication {
 		SpringApplication.run(NphcApplication.class, args);
 	}
 
+    
 }
