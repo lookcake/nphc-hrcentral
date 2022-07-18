@@ -1,6 +1,7 @@
 package com.hrcentral.nphc.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 
@@ -11,6 +12,6 @@ public interface EmployeeService {
 
 	public List<Employee> saveAll(List<Employee> employeelist) throws Exception;
 
-	public Employee findById(String id);
+	public Optional<Employee> findById(String id);
 	
 }

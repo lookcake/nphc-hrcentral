@@ -32,12 +32,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	
 	@Override
-	public Employee findById(String id) {
+	public Optional<Employee> findById(String id) {
 		Optional<Employee> result = repo.findById(id);
-		if (!result.isPresent()) {
-			throw new CustomException(ResponseMessage.MSG_ERR_NO_SUCH_EMPLOYEE);
-		}
-		return result.get();
+//		if (!result.isPresent()) {
+//			throw new CustomException(ResponseMessage.MSG_ERR_NO_SUCH_EMPLOYEE);
+//		}
+		return result;
 	}
 
 

@@ -1,6 +1,7 @@
 package com.hrcentral.nphc.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -42,16 +43,16 @@ public class EmployeeController<T> {
 		return ResponseEntity.ok().body(new ResponseObject(ResponseMessage.MSG_SUC_CREATED));
 	}
 	
-	@SuppressWarnings("unchecked")
 	@GetMapping(value = "/users/{id}")
-	public @ResponseBody ResponseEntity<Employee> findById(@PathVariable String id) {
+	public @ResponseBody ResponseEntity<Optional<Employee>> findById(@PathVariable String id) {
 		
 		logger.info("id: {}", id);
-		Employee result = service.findById(id);
-//		if(result.isPresent())
-//		return ResponseEntity.ok().body(result).status(HttpStatus.CREATED);
-//		return  ResponseEntity(body(),HttpStatus.OK);
-		return  ResponseEntity.status(HttpStatus.OK).body(result);
+		Optional<Employee> result = service.findById(id);
+		if(!result.isPresent()) {
+//			return new ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ResponseMessage.MSG_ERR_NO_SUCH_EMPLOYEE_BAD_INPUT);
+			return new ResponseEntity(new ResponseObject(ResponseMessage.MSG_ERR_NO_SUCH_EMPLOYEE_BAD_INPUT),HttpStatus.BAD_REQUEST);
+		}
+		return ResponseEntity.status(HttpStatus.OK).body(result);
 		
 	}
 	
