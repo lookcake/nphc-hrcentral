@@ -4,6 +4,8 @@ import java.sql.Date;
 
 import javax.persistence.*;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name="TB_USER")
 public class Employee {
@@ -13,9 +15,13 @@ public class Employee {
 	@Column(unique = true)
 	private String login;
 	private String name;
+	@Column(precision = 2, scale = 2)
 	private double salary;
-	@Column(precision = 2, scale = 11)
 	private Date startDate;
+	
+//	public Employee(String id) {
+//		this.id = id;
+//	}
 	public String getId() {
 		return id;
 	}
