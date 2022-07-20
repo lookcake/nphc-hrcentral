@@ -7,10 +7,11 @@ public class ResponseMessage {
 	public static final String MSG_SUC_NO_CREATE = "Success but no data updated";
 	public static final String MSG_SUC_CREATE_UPDATE = "Data created or uploaded";
 	public static final String MSG_SUC_UPDATED = "Successfully updated";
-	public static final String MSG_SUC_DELETED = "Successfully deleted";
+	public static final String MSG_SUC_DELETED = "Employee deleted";
 
 	public static final String MSG_ERR_NO_SUCH_EMPLOYEE = "No such employee";
 	public static final String MSG_ERR_NO_SUCH_EMPLOYEE_BAD_INPUT = "Bad input - no such employee";
+	public static final String MSG_ERR_NO_SUCH_EMPLOYEE_BAD = "Bad input";
 	public static final String MSG_ERR_EMPLOYEE_EXIST = "Employee ID already exists";
 	public static final String MSG_ERR_NOT_UNIQUE_EMPLOYEE_LOGIN ="Employee login not unique";
 	public static final String MSG_ERR_NOT_UNIQUE = "not unique";

@@ -1,6 +1,7 @@
 package com.hrcentral.nphc.model;
 
-import java.sql.Date;
+
+import java.util.Date;
 
 import javax.persistence.*;
 
@@ -16,8 +17,8 @@ public class Employee {
 	private String login;
 	private String name;
 	@Column(precision = 2, scale = 2)
-	private double salary;
-	private Date startDate;
+	private Double salary;
+	private String startDate;
 	
 //	public Employee(String id) {
 //		this.id = id;
@@ -40,19 +41,19 @@ public class Employee {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public double getSalary() {
-		return salary;
-	}
-	public void setSalary(double salary) {
+	public void setSalary(Double salary) {
 		this.salary = salary;
 	}
-	public Date getStartDate() {
-		return startDate;
-	}
-	public void setStartDate(Date startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
 	
+	public Double getSalary() {
+		return salary;
+	}
+	public String getStartDate() {
+		return startDate;
+	}
 	@Override
 	public String toString() {
 		return "employee [id=" + id + ", login=" + login + ", name=" + name + ", salary=" + salary + ", startDate="

@@ -33,6 +33,8 @@ public interface EmployeeRepository extends JpaRepository<Employee, String> {
 	List<Employee> findBySalaryLessThanEqual(@Param("salary") Double salary);
 	@RestResource(path = "greaterequal")
 	List<Employee> findBySalaryGreaterThanEqual(@Param("salary") Double salary );
+	
+	public boolean existsByLoginAndIdNot(String login, String id);
 
 	
 	
