@@ -82,11 +82,13 @@ public class EmployeeController<T> {
 	public @ResponseBody ResponseEntity<Optional<Employee>> findById(@PathVariable String id) {
 
 		logger.info("id: {}", id);
-		Optional<Employee> result = service.findById(id);
-		if (!result.isPresent()) {
+		try {
+			Optional<Employee> result = service.findById(id);
+			return ResponseEntity.status(HttpStatus.OK).body(result);
+		}
+		catch (CustomException e) {
 			return createReponseEntity(ResponseMessage.MSG_ERR_NO_SUCH_EMPLOYEE_BAD_INPUT, HttpStatus.BAD_REQUEST);
 		}
-		return ResponseEntity.status(HttpStatus.OK).body(result);
 	}
 
 	@SuppressWarnings("unchecked")

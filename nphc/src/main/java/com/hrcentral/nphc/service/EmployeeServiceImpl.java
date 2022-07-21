@@ -95,7 +95,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public Optional<Employee> findById(String id) {
+	public Optional<Employee> findById(String id) throws CustomException   {
 		Optional<Employee> result = repo.findById(id);
 		if (!result.isPresent()) {
 			throw new CustomException(ResponseMessage.MSG_ERR_NO_SUCH_EMPLOYEE);

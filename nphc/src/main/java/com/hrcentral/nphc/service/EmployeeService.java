@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.hrcentral.nphc.helper.CustomException;
 import com.hrcentral.nphc.model.Employee;
 
 @Component
@@ -15,7 +16,7 @@ public interface EmployeeService {
 	
 	public void save(Employee employee);
 	
-	public Optional<Employee> findById(String id);
+	public Optional<Employee> findById(String id) throws CustomException;
 
 	public void deleteById(String id) ;
 	
