@@ -111,6 +111,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public void updateUserById(Employee empl) {
+		validateUpdateUserWithError(empl);
 		saveOrUpdateUser(empl);
 	}
 
@@ -302,6 +303,24 @@ public class EmployeeServiceImpl implements EmployeeService {
 		} catch (IOException ex) {
 			throw new CustomException(ResponseMessage.MSG_ERR_FILE_READING);
 		}
+	}
+	
+	public void validateMandatoryFieldWithError(Employee empl) {
+		StringJoiner sj = validateMandatoryField(empl);
+
+		if (sj.length() > 0) {
+			throw new CustomException(String.format(ResponseMessage.MSG_ERR_MANDATORY_FIELD, sj.toString()));
+		}
+
+	}
+	
+	public void validateFormatWithError(Employee empl) {
+		StringJoiner sj = validateFormat(empl);
+
+		if (sj.length() > 0) {
+			throw new CustomException(String.format(ResponseMessage.MSG_ERR_INVALID_FIELD, sj.toString()));
+		}
+
 	}
 
 }
