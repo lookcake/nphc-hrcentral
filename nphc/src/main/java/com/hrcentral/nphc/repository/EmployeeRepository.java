@@ -37,5 +37,4 @@ public interface EmployeeRepository extends JpaRepository<Employee, String> {
 	public boolean existsByLoginAndIdNot(String login, String id);
 
 	
-	
 }
