@@ -111,7 +111,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public void updateUserById(Employee empl) {
-		validateUpdateUserWithError(empl);
 		saveOrUpdateUser(empl);
 	}
 

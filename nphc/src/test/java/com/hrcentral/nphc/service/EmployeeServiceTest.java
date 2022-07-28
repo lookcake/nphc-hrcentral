@@ -154,25 +154,6 @@ public class EmployeeServiceTest {
 		service.save(empl);
 
 		
-
-		// update //
-		
-		// when employee does not exists
-		Mockito.when(repo.existsById(empl.getId())).thenReturn(false);
-		
-		exception = assertThrows(CustomException.class, () -> service.updateUserById(empl));
-
-		assertEquals(ResponseMessage.MSG_ERR_NO_SUCH_EMPLOYEE, exception.getMessage());
-		
-
-		// when employye exists but Id already used
-		Mockito.when(repo.existsById(empl.getId())).thenReturn(true);
-		
-		Mockito.when(repo.existsByLoginAndIdNot(empl.getLogin(), empl.getId())).thenReturn(true);
-
-		exception = assertThrows(CustomException.class, () -> service.updateUserById(empl));
-
-		assertEquals(ResponseMessage.MSG_ERR_EMPLOYEE_EXIST, exception.getMessage());
 	
 		// delete //
 		

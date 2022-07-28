@@ -114,6 +114,12 @@ public class EmployeeControllerTest {
 	public void shouldPutEmployeeReturnDetail() throws Exception {
 		EmployeeJson emplJson = new EmployeeJson("f0001", "loginfj", "fanjie", "1000.0", "2022-04-17");
 		String jsonString = objectMapper.writeValueAsString(emplJson);
+		
+		mockMvc.perform(post("/users")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(jsonString)).andExpect(
+						status().isOk()).andReturn();
+		
 		mockMvc.perform(put("/users/f0001")
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(jsonString)).andExpect(
@@ -130,6 +136,7 @@ public class EmployeeControllerTest {
 	public void shouldPatchEmployeeReturnDetail() throws Exception {
 		EmployeeJson emplJson = new EmployeeJson("f0002", "logincg", "chengong", "2000.0", "2022-04-17");
 		String jsonString = objectMapper.writeValueAsString(emplJson);
+		
 		mockMvc.perform(patch("/users/f0002")
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(jsonString)).andExpect(
